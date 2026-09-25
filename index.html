@@ -1,22 +1,521 @@
-<!DOCTYPE html>
-<html lang ="eng">
-    <head>
-        <meta charset ="UTF-8" />
-        <meta name ="viewpoint" content="width=device-width, initial-scale=1.0"/>
-        <title>Sandhya Neupane | Portfolio </title>
-        <link rel= "stylesheet" href="style.css" />
-    </head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sandhya Neupane: Computer Science (Honors) student at Texas State University. Machine learning, data and research.">
+<title>Sandhya Neupane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --sunken:#E3E8ED; --ink:#111A24; --muted:#56636F; --line:#D2D9E0;
+  --accent:#2B4FD8; --accent-ink:#FFFFFF; --accent-soft:#DCE3FB;
+  --hl:#B8740A; --hl-soft:#FBEBCB;
+  --term-bg:#0F1720; --term-ink:#D8E1EA; --term-muted:#7C8B99; --term-accent:#8FA8FF; --term-hl:#F2B23A; --term-err:#FF8A7A;
+  --display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0C1117; --surface:#131A22; --sunken:#0F151C; --ink:#E4EAF0; --muted:#8D9AA7; --line:#26313C;
+    --accent:#86A0FF; --accent-ink:#0C1117; --accent-soft:#1C2645;
+    --hl:#F2B23A; --hl-soft:#3A2C10;
+    --term-bg:#080C11;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0C1117; --surface:#131A22; --sunken:#0F151C; --ink:#E4EAF0; --muted:#8D9AA7; --line:#26313C;
+  --accent:#86A0FF; --accent-ink:#0C1117; --accent-soft:#1C2645;
+  --hl:#F2B23A; --hl-soft:#3A2C10;
+  --term-bg:#080C11;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+@media (max-width:520px){.wrap{padding-inline:16px}}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-    <body>
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:14px}
+.navlinks a:hover{color:var(--ink)}
+@media (max-width:640px){.navlinks a:not(.keep){display:none}}
 
-        <header class ="Intro"
-            <h1>Sandhya Neupane</h1>
-            <p>Computer Science Student</p>
-        </header>
+/* hero */
+.hero{padding-block:56px 64px;display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:32px;padding-block:40px 48px}}
+.hero h1{font-size:clamp(40px,6vw,64px);font-weight:700;letter-spacing:-.03em}
+.hero .lede{font-size:19px;color:var(--muted);margin-top:18px;max-width:34ch}
+.hero .lede strong{color:var(--ink);font-weight:500}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;padding:10px 16px;border-radius:8px;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--surface);cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{filter:brightness(1.06)}
 
-        <
+/* terminal */
+.term{background:var(--term-bg);color:var(--term-ink);border-radius:12px;font-family:var(--mono);font-size:13.5px;line-height:1.55;box-shadow:0 24px 48px -24px rgba(10,20,40,.45);overflow:hidden;min-width:0}
+.term-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08);color:var(--term-muted);font-size:12px}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:#2A3643;display:block}
+.term-out{height:300px;overflow:auto;padding:14px 16px;white-space:pre;tab-size:2}
+.term-out .p{color:var(--term-accent)}
+.term-out .m{color:var(--term-muted)}
+.term-out .e{color:var(--term-err)}
+.term-out .h{color:var(--term-hl)}
+.term-in{display:flex;align-items:center;gap:8px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.term-in label{color:var(--term-accent);white-space:nowrap}
+.term-in input{flex:1;min-width:0;background:transparent;border:0;color:var(--term-ink);font:inherit;outline:none;caret-color:var(--term-hl)}
+.suggest{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 14px}
+.suggest button{font:inherit;font-size:11.5px;background:rgba(255,255,255,.06);color:var(--term-ink);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 8px;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.suggest button:hover{background:rgba(255,255,255,.12)}
+.term-note{font-family:var(--body);font-size:13px;color:var(--muted);margin-top:10px}
+
+/* sections */
+section{padding-block:72px;border-top:1px solid var(--line)}
+@media (max-width:640px){section{padding-block:52px}}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:680px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.02em}
+.sec-head p{color:var(--muted);font-size:17px}
+
+/* featured */
+.feature-top{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+@media (max-width:860px){.feature-top{grid-template-columns:1fr;gap:28px}}
+.prose p+p{margin-top:14px}
+.prose{max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:24px}
+.stat{background:var(--surface);padding:14px 16px}
+.stat b{display:block;font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:6px}
+.layer{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.layer strong{font-family:var(--display);font-weight:600;font-size:16px}
+.layer code{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.layer small{grid-column:1/-1;color:var(--muted);font-size:13px}
+.arrow{font-family:var(--mono);color:var(--muted);font-size:12px;text-align:center;line-height:1}
+.disk{border-style:dashed;background:var(--sunken)}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;margin-top:40px}
+@media (max-width:520px){.panel{padding:18px}}
+.panel h3{font-size:22px;letter-spacing:-.01em}
+.panel .sub{color:var(--muted);font-size:15px;margin-top:6px;max-width:68ch}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+.controls input{font-family:var(--mono);font-size:14px;width:110px;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.btn.small{padding:8px 12px;font-size:14px}
+.tree-box{margin-top:18px;overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:16px}
+.tree-box svg{display:block;margin:0 auto}
+.tree-status{font-family:var(--mono);font-size:13px;margin-top:12px;color:var(--muted);min-height:1.6em}
+.tree-status b{color:var(--hl);font-weight:500}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 
 
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.two h4{font-family:var(--display);font-size:17px;margin:0 0 10px}
+.two ul{margin:0;padding-left:18px;color:var(--ink)}
+.two li+li{margin-top:6px}
+.two li{font-size:15px}
 
-    </body>
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card .kind{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.card h3{font-size:20px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.card-link{font-size:14px;font-weight:500;text-decoration:none}
+.card-link:hover{text-decoration:underline}
+.tag{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:5px;background:var(--sunken);color:var(--muted)}
+
+/* experience */
+.timeline{display:flex;flex-direction:column}
+.job{display:grid;grid-template-columns:180px 1fr;gap:24px;padding-block:22px;border-bottom:1px solid var(--line)}
+.job:first-child{padding-top:0}
+.job:last-child{border-bottom:0}
+@media (max-width:640px){.job{grid-template-columns:1fr;gap:6px}}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.job h3{font-size:19px}
+.job .org{color:var(--muted);font-size:15px;margin-top:2px}
+.job ul{margin:10px 0 0;padding-left:18px;font-size:15px}
+.job li+li{margin-top:4px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:760px){.skills{grid-template-columns:1fr;gap:22px}}
+.skills h3{font-size:16px;margin-bottom:10px}
+.skills .tags{margin-top:0;padding-top:0}
+.skills .tag{font-size:13px;padding:4px 9px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+
+.edu{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;margin-top:44px}
+@media (max-width:760px){.edu{grid-template-columns:1fr}}
+.edu .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.edu h3{font-size:19px}
+.edu p,.edu li{font-size:15px;color:var(--muted)}
+.edu ul{margin:8px 0 0;padding-left:18px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+.contact-list{display:flex;flex-direction:column;gap:10px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;flex-wrap:wrap}
+.crow span.v{font-family:var(--mono);font-size:14px;user-select:all;word-break:break-all}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:no-preference){
+  .node-new{animation:pop .5s ease-out}
+  @keyframes pop{from{transform:scale(.92);opacity:.4}to{transform:none;opacity:1}}
+}
+</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Sandhya Neupane</a>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a class="keep" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="label">Computer Science (Honors) · Texas State University</p>
+      <h1 style="margin-top:14px">I build machine learning from first principles.</h1>
+      <p class="lede">I'm a CS student with a <strong>4.0 GPA</strong>, a minor in data analytics, and a research assistant role in semiconductor simulation. I like understanding things from the ground up: <strong>neural networks in plain NumPy</strong>, <strong>automatic differentiation</strong>, and <strong>data pipelines</strong> at the scale of millions of records.</p>
+      <div class="facts">
+        <span class="chip">San Marcos, TX</span>
+        <span class="chip">B.S. expected May 2028</span>
+        <span class="chip">Open to internships</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See projects</a>
+        <a class="btn" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+
+    <div style="min-width:0">
+      <div class="term" role="region" aria-label="Interactive SQL console">
+        <div class="term-bar"><div class="dots"><i></i><i></i><i></i></div><span>sql resume.db</span><span></span></div>
+        <div class="term-out" id="termOut" aria-live="polite"></div>
+        <div class="term-in">
+          <label for="termIn">sql&gt;</label>
+          <input id="termIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type SQL and press Enter">
+        </div>
+        <div class="suggest" id="suggest"></div>
+      </div>
+      <p class="term-note">A working SQL console. Query my résumé: the tables are <span class="mono">projects</span>, <span class="mono">experience</span> and <span class="mono">skills</span>.</p>
+    </div>
+  </div>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Projects</span>
+        <h2>Machine learning and data</h2>
+        <p>My ML work avoids high-level libraries on purpose, so I understand what they do under the hood. My data work focuses on clean, validated pipelines at scale.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="kind"><span class="label">Machine learning</span></div>
+          <h3>ML algorithms from scratch</h3>
+          <p>A fully connected neural network, linear and logistic regression, and decision trees using only NumPy, with no scikit-learn. Forward propagation, backpropagation and gradient descent written by hand, with learning curves to study convergence and generalization.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span></div>
+          <a class="card-link" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">Code on GitHub →</a>
+        </article>
+        <article class="card">
+          <div class="kind"><span class="label">Deep learning</span></div>
+          <h3>Higher-order automatic differentiation</h3>
+          <p>Derivatives of a Gaussian to arbitrary order using PyTorch autograd, benchmarked on CPU and GPU. An analysis of how cost scales with derivative order and what that says about computational graphs.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">CUDA</span></div>
+          <a class="card-link" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">Code on GitHub →</a>
+        </article>
+        <article class="card">
+          <div class="kind"><span class="label">Research study</span></div>
+          <h3>Neural network function approximation</h3>
+          <p>Controlled experiments on shallow and deep ReLU networks approximating oscillatory functions. Compares activations, losses, and network width and depth against approximation error, which informs practical model selection.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Jupyter</span></div>
+          <a class="card-link" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">Code on GitHub →</a>
+        </article>
+        <article class="card">
+          <div class="kind"><span class="label">Data engineering</span></div>
+          <h3>Large-scale data pipeline</h3>
+          <p>Processed and validated more than 5 million records in BigQuery with strict schema and integrity checks, then built dashboards that explain the patterns to technical and non-technical audiences.</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Looker Studio</span></div>
+          <a class="card-link" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">Code on GitHub →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Experience</span>
+        <h2>Research, teaching and testing</h2>
+      </div>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">May 2026 – now</div>
+          <div>
+            <h3>Research Assistant</h3>
+            <p class="org">Texas State University, Department of Computer Science</p>
+            <ul>
+              <li>Semiconductor research under faculty supervision: running simulations and writing custom scripts to model and analyze device behavior.</li>
+              <li>Turn research questions into reproducible computational experiments and maintain the data processing code behind them.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Jan – May 2026</div>
+          <div>
+            <h3>Teaching Assistant</h3>
+            <p class="org">Texas State University, CS II and Data Structures</p>
+            <ul>
+              <li>Graded programming assignments and gave targeted feedback on debugging, syntax and style to more than 100 students.</li>
+              <li>Held office hours to guide problem-solving, and proctored exams.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Apr – Jun 2023</div>
+          <div>
+            <h3>Data Tester Intern</h3>
+            <p class="org">Mphasis Tech Foundation, Nepal</p>
+            <ul>
+              <li>Validated data pipelines across web and mobile systems, found integration failures, and enforced data accuracy across platforms.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="box">
+          <span class="label">Education</span>
+          <h3 style="margin-top:8px">B.S. Computer Science (Honors), minor in Data Analytics</h3>
+          <p style="margin-top:4px">Texas State University · GPA 4.0 · expected May 2028</p>
+          <ul>
+            <li>President Merit Scholarship (2024)</li>
+            <li>Dean's List (2024, 2025)</li>
+            <li>Coursework: Data Structures &amp; Algorithms, Machine Learning, Database Systems, Statistics</li>
+          </ul>
+        </div>
+        <div class="box">
+          <span class="label">Certifications</span>
+          <ul style="margin-top:10px">
+            <li>Building AI Agents with Multimodal Models, NVIDIA Deep Learning Institute (2026)</li>
+            <li>Supervised Machine Learning: Regression and Classification, DeepLearning.AI</li>
+            <li>Google Data Analytics Professional Certificate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Skills</span>
+        <h2>Tools I work with</h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>Languages</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">HTML</span></div>
+        </div>
+        <div>
+          <h3>AI and ML</h3>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">SciPy</span><span class="tag">Neural networks</span><span class="tag">Autodiff</span><span class="tag">AI agents</span></div>
+        </div>
+        <div>
+          <h3>Data and tools</h3>
+          <div class="tags"><span class="tag">BigQuery</span><span class="tag">Google Cloud</span><span class="tag">Git</span><span class="tag">Vercel</span><span class="tag">Looker Studio</span></div>
+        </div>
+      </div>
+      <p style="margin-top:28px;color:var(--muted);font-size:15px">I speak English, Nepali (native) and Hindi.</p>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="label">Contact</span>
+        <h2>Let's talk about internships</h2>
+        <p>I'm looking for software engineering, data and machine learning internships for summer 2027. Email is the fastest way to reach me.</p>
+      </div>
+      <div class="contact-list">
+        <div class="crow"><span class="v" id="emailVal">dhyaneupane@gmail.com</span><button class="btn small" type="button" id="copyBtn">Copy email</button></div>
+        <div class="crow"><span class="v">github.com/sandhyaneupane</span><a class="btn small" href="https://github.com/sandhyaneupane" target="_blank" rel="noopener">Open</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Sandhya Neupane</span><span>San Marcos, Texas</span></div>
+</footer>
+
+<script>
+(function(){
+/* ===================== tiny SQL console ===================== */
+const DB = {
+  projects: {
+    cols: ["id","name","area","stack"],
+    rows: [
+      [1,"ML from scratch","ml","NumPy"],
+      [2,"Higher-order autodiff","ml","PyTorch"],
+      [3,"NN approximation study","ml","PyTorch"],
+      [4,"Data pipeline","data","BigQuery"]
+    ]
+  },
+  experience: {
+    cols: ["id","role","org","start_year"],
+    rows: [
+      [1,"Research Assistant","Texas State CS",2026],
+      [2,"Teaching Assistant","Texas State CS",2026],
+      [3,"Data Tester Intern","Mphasis",2023]
+    ]
+  },
+  skills: {
+    cols: ["name","kind"],
+    rows: [
+      ["Python","language"],["C++","language"],["SQL","language"],["JavaScript","language"],
+      ["PyTorch","ml"],["NumPy","ml"],["Pandas","ml"],["BigQuery","data"],["Git","tool"]
+    ]
+  }
+};
+const out = document.getElementById("termOut");
+const input = document.getElementById("termIn");
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function print(html){ out.insertAdjacentHTML("beforeend", html + "\n"); out.scrollTop = out.scrollHeight; }
+
+function tokenize(s){
+  const re = /\s*(?:(\d+(?:\.\d+)?)|('(?:[^']|'')*')|([A-Za-z_][A-Za-z0-9_]*)|(<=|>=|!=|<>|[=<>*,();]))/y;
+  const t = []; let m; re.lastIndex = 0;
+  while (re.lastIndex < s.length){
+    if (/^\s*$/.test(s.slice(re.lastIndex))) break;
+    m = re.exec(s);
+    if (!m) throw new Error("unexpected character near '" + s.slice(re.lastIndex).trim()[0] + "'");
+    if (m[1]) t.push({k:"num", v:Number(m[1])});
+    else if (m[2]) t.push({k:"str", v:m[2].slice(1,-1).replace(/''/g,"'")});
+    else if (m[3]) t.push({k:"id", v:m[3].toLowerCase()});
+    else t.push({k:"sym", v:m[4]});
+  }
+  return t;
+}
+function runSQL(sql){
+  const t = tokenize(sql); let i = 0;
+  const peek = () => t[i] || {k:"end", v:""};
+  const kw = w => peek().k==="id" && peek().v===w ? (i++, true) : false;
+  const need = w => { if(!kw(w)) throw new Error("syntax error: expected " + w.toUpperCase() + " near '" + (peek().v||"end") + "'"); };
+  const sym = s => peek().k==="sym" && peek().v===s ? (i++, true) : false;
+  if (!kw("select")) throw new Error("this console only runs SELECT (try: SELECT * FROM projects;)");
+  let cols = [], count = false;
+  if (sym("*")) cols = ["*"];
+  else if (kw("count")) { if(!sym("(")||!sym("*")||!sym(")")) throw new Error("use COUNT(*)"); count = true; }
+  else { do { const c = peek(); if (c.k!=="id") throw new Error("expected a column name"); cols.push(c.v); i++; } while (sym(",")); }
+  need("from");
+  const tn = peek().v; i++;
+  const tbl = DB[tn]; if (!tbl) throw new Error("no such table: " + tn + " (tables: projects, experience, skills)");
+  const conds = [];
+  if (kw("where")) {
+    do {
+      const c = peek(); if (c.k!=="id") throw new Error("expected a column after WHERE"); i++;
+      let op = peek(); if (op.k==="id" && op.v==="like") { i++; op = "like"; } else if (op.k==="sym") { i++; op = op.v==="<>"?"!=":op.v; } else throw new Error("expected an operator");
+      const v = peek(); if (v.k!=="num" && v.k!=="str") throw new Error("expected a value"); i++;
+      const ci = tbl.cols.indexOf(c.v); if (ci<0) throw new Error("no such column: " + c.v);
+      conds.push({ci, op, v:v.v});
+    } while (kw("and"));
+  }
+  let order = null, desc = false, limit = -1;
+  if (kw("order")) { need("by"); order = tbl.cols.indexOf(peek().v); if (order<0) throw new Error("no such column: " + peek().v); i++; if (kw("desc")) desc = true; else kw("asc"); }
+  if (kw("limit")) { const n = peek(); if (n.k!=="num") throw new Error("LIMIT needs a number"); limit = n.v; i++; }
+  sym(";");
+  if (peek().k!=="end") throw new Error("unexpected '" + peek().v + "'");
+  const test = (a, op, b) => {
+    if (op==="like") { const re = new RegExp("^" + String(b).replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/%/g,".*").replace(/_/g,".") + "$","i"); return re.test(String(a)); }
+    if (typeof a !== typeof b) throw new Error("cannot compare " + (typeof a==="number"?"INT":"TEXT") + " with " + (typeof b==="number"?"INT":"TEXT"));
+    return op==="="?a===b: op==="!="?a!==b: op==="<"?a<b: op===">"?a>b: op==="<="?a<=b: a>=b;
+  };
+  let rows = tbl.rows.filter(r => conds.every(c => test(r[c.ci], c.op, c.v)));
+  if (count) return {cols:["count(*)"], rows:[[rows.length]]};
+  if (order!==null) rows = rows.slice().sort((a,b) => (a[order]<b[order]?-1:a[order]>b[order]?1:0) * (desc?-1:1));
+  if (limit>=0) rows = rows.slice(0, limit);
+  const idx = cols[0]==="*" ? tbl.cols.map((_,k)=>k) : cols.map(c => { const k = tbl.cols.indexOf(c); if (k<0) throw new Error("no such column: " + c); return k; });
+  return {cols: idx.map(k=>tbl.cols[k]), rows: rows.map(r => idx.map(k=>r[k]))};
+}
+function table(res){
+  const w = res.cols.map((c,k) => Math.max(c.length, ...res.rows.map(r => String(r[k]).length)));
+  const line = "+" + w.map(x => "-".repeat(x+2)).join("+") + "+";
+  const fmt = r => "| " + r.map((v,k) => String(v).padEnd(w[k])).join(" | ") + " |";
+  return [line, fmt(res.cols), line, ...res.rows.map(fmt), line].map(esc).join("\n") + "\n<span class='m'>(" + res.rows.length + (res.rows.length===1?" row)":" rows)") + "</span>";
+}
+function exec(cmd){
+  const c = cmd.trim(); if (!c) return;
+  print("<span class='p'>sql&gt;</span> " + esc(c));
+  const low = c.toLowerCase().replace(/;$/,"").trim();
+  if (low === "clear" || low === ".clear") { out.innerHTML = ""; return; }
+  if (low === ".help" || low === "help") { print("<span class='m'>Run SELECT queries on my résumé. Examples:\n  SELECT * FROM projects WHERE area = 'ml';\n  SELECT role, org FROM experience ORDER BY start_year DESC;\n  SELECT COUNT(*) FROM skills WHERE kind = 'language';\n  SELECT name FROM projects WHERE name LIKE '%auto%';\nMeta: .tables  .schema  clear</span>"); return; }
+  if (low === ".tables") { print(Object.keys(DB).join("\n")); return; }
+  if (low === ".schema") { print(Object.entries(DB).map(([n,t]) => "CREATE TABLE " + n + " (" + t.cols.join(", ") + ");").map(esc).join("\n")); return; }
+  try { print(table(runSQL(c))); } catch (e) { print("<span class='e'>Error: " + esc(e.message) + "</span>"); }
+}
+const examples = [
+  "SELECT * FROM projects;",
+  "SELECT name, stack FROM projects WHERE area = 'ml';",
+  "SELECT role, org FROM experience ORDER BY start_year DESC;",
+  "SELECT COUNT(*) FROM skills WHERE kind = 'language';",
+  ".help"
+];
+const sug = document.getElementById("suggest");
+examples.forEach(q => { const b = document.createElement("button"); b.type = "button"; b.textContent = q; b.addEventListener("click", () => { exec(q); input.focus({preventScroll:true}); }); sug.appendChild(b); });
+const hist = []; let hi = 0;
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") { const v = input.value; if (v.trim()) { hist.push(v); hi = hist.length; } exec(v); input.value = ""; }
+  else if (e.key === "ArrowUp" && hist.length) { hi = Math.max(0, hi-1); input.value = hist[hi]; e.preventDefault(); }
+  else if (e.key === "ArrowDown" && hist.length) { hi = Math.min(hist.length, hi+1); input.value = hist[hi] || ""; e.preventDefault(); }
+});
+print("<span class='m'>Resume console. Type .help for examples, or click a query below.</span>");
+exec("SELECT * FROM projects WHERE area = 'ml';");
+
+/* copy email */
+document.getElementById("copyBtn").addEventListener("click", e => {
+  const btn = e.currentTarget, text = document.getElementById("emailVal").textContent;
+  const done = msg => { btn.textContent = msg; setTimeout(() => btn.textContent = "Copy email", 1800); };
+  try {
+    navigator.clipboard.writeText(text).then(() => done("Copied"), () => { selectEmail(); done("Press Ctrl+C"); });
+  } catch (_) { selectEmail(); done("Press Ctrl+C"); }
+});
+function selectEmail(){ const r = document.createRange(); r.selectNodeContents(document.getElementById("emailVal")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+})();
+</script>
+
+</body>
 </html>
